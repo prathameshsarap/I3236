@@ -4,49 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Retrieval</title>
+    <title>Document</title>
 </head>
 <body>
     <style>
-        table {
+        input{
             width: 100%;
-        }
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
+            margin: 10px 0 10px 0;
         }
     </style>
     <script>
-        function getData() {
+        function getData()
+        {
             const getDataa = localStorage.getItem("MyData");
-            if (getDataa) {
-                const myOBJ = JSON.parse(getDataa);
-                document.getElementById("email").textContent = myOBJ.email;
-                document.getElementById("name").textContent = myOBJ.name;
-                document.getElementById("pass").textContent = myOBJ.pass;
-            } else {
-                console.log("Data not found in local storage.");
+            const myOBJ = JSON.parse(getDataa);
+            document.getElementById("table1").rows[1].cells[1].innerHTML = myOBJ.name;
+            document.getElementById("table1").rows[1].cells[0].innerHTML = myOBJ.email;
+            document.getElementById("table1").rows[1].cells[2].innerHTML = myOBJ.pass;
+
             }
-        }
-        window.addEventListener('DOMContentLoaded', (event) => {
-            getData();
-        });
     </script>
-    <div>
-        <h1>Getting Data From Browser Local Storage</h1>
+    <div >
+        <h1>Getting Data From Browser is itLocal Storage</h1>
     </div>
-    <table>
+    <table style="width:100%" id="table1">
         <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Password</th>
+          <td>Emil</td>
+          <td>Name</td>
+          <td>Password</td>
         </tr>
         <tr>
-            <td id="email"></td>
-            <td id="name"></td>
-            <td id="pass"></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
-    </table>
-</body>
+      </table>
+    <h2><button onclick="getData()">Get Data</button></h2>  
+    </body>
 </html>
