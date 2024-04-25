@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Retrieval</title>
+</head>
+<body>
+    <style>
+        table {
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function getData() {
+            const getDataa = localStorage.getItem("MyData");
+            if (getDataa) {
+                const myOBJ = JSON.parse(getDataa);
+                document.getElementById("email").textContent = myOBJ.email;
+                document.getElementById("name").textContent = myOBJ.name;
+                document.getElementById("pass").textContent = myOBJ.pass;
+            } else {
+                console.log("Data not found in local storage.");
+            }
+        }
+        window.addEventListener('DOMContentLoaded', (event) => {
+            getData();
+        });
+    </script>
+    <div>
+        <h1>Getting Data From Browser Local Storage</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td id="email"></td>
+            <td id="name"></td>
+            <td id="pass"></td>
+        </tr>
+    </table>
+</body>
+</html>
