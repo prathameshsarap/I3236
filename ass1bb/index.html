@@ -9,7 +9,7 @@
 <body>
     <style>
         input{
-            width: 100%;
+            width: 100%;    
             margin: 10px 0 10px 0;
         }
     </style>
@@ -18,7 +18,7 @@
         {
             const myObj = {name:document.getElementById("name").value,email:document.getElementById("email").value,pass:document.getElementById("pass").value}
             const myJOSN = JSON.stringify(myObj);
-            localStorage.setItem("MyData",myJOSN);
+                         localStorage.setItem("MyData",myJOSN);
         }
     </script>
     <div>
